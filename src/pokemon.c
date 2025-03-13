@@ -2490,6 +2490,9 @@ u32 GetBoxMonData3(struct BoxPokemon *boxMon, s32 field, u8 *data)
         case MON_DATA_HELD_ITEM:
             retVal = substruct0->heldItem;
             break;
+        case MON_DATA_DROP_ITEM:
+            retVal = substruct0->unused_02;
+            break;
         case MON_DATA_EXP:
             retVal = substruct0->experience;
             break;
@@ -2982,6 +2985,10 @@ void SetBoxMonData(struct BoxPokemon *boxMon, s32 field, const void *dataArg)
                 boxMon->hasSpecies = FALSE;
             break;
         }
+        //TODO add case DONE
+        case MON_DATA_DROP_ITEM:
+            SET16(substruct0->unused_02);
+            break;
         case MON_DATA_HELD_ITEM:
             SET16(substruct0->heldItem);
             break;
@@ -6023,6 +6030,8 @@ void SetWildMonHeldItem(void)
             }
             else
             {
+                //TODO here insert DONE
+                SetMonData(&gEnemyParty[i], MON_DATA_DROP_ITEM, &gSpeciesInfo[species].itemDrop);
                 if (gSpeciesInfo[species].itemCommon == gSpeciesInfo[species].itemRare && gSpeciesInfo[species].itemCommon != ITEM_NONE)
                 {
                     // Both held items are the same, 100% chance to hold item

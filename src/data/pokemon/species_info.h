@@ -180,7 +180,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .teachableLearnset = sNoneTeachableLearnset,
         .eggMoveLearnset = sNoneEggMoveLearnset,
     },
-
+    // TODO edit here and add .itemDrop
     #include "species_info/gen_1_families.h"
     #include "species_info/gen_2_families.h"
     #include "species_info/gen_3_families.h"

@@ -116,6 +116,7 @@ enum {
     MON_DATA_GIGANTAMAX_FACTOR,
     MON_DATA_TERA_TYPE,
     MON_DATA_EVOLUTION_TRACKER,
+    MON_DATA_DROP_ITEM,
 };
 
 struct PokemonSubstruct0
@@ -123,7 +124,7 @@ struct PokemonSubstruct0
     u16 species:11; // 2047 species.
     u16 teraType:5; // 30 types.
     u16 heldItem:10; // 1023 items.
-    u16 unused_02:6;
+    u16 unused_02:6; // TODO use those bit for 63 drop items and change name
     u32 experience:21;
     u32 nickname11:8; // 11th character of nickname.
     u32 unused_04:3;
@@ -329,7 +330,8 @@ struct BattlePokemon
     /*0x2B*/ u8 level;
     /*0x2C*/ u8 friendship;
     /*0x2D*/ u16 maxHP;
-    /*0x2F*/ u16 item;
+    /*0x2F*/ u16 item; //TODO add :10 and u16 itemDrop:6
+    /*0x30*/ u16 itemDrop;
     /*0x31*/ u8 nickname[POKEMON_NAME_LENGTH + 1];
     /*0x3C*/ u8 ppBonuses;
     /*0x3D*/ u8 otName[PLAYER_NAME_LENGTH + 1];
@@ -370,6 +372,7 @@ struct SpeciesInfo /*0xC4*/
     u16 padding2:4;
     u16 itemCommon;
     u16 itemRare;
+    u16 itemDrop;
     u8 genderRatio;
     u8 eggCycles;
     u8 friendship;

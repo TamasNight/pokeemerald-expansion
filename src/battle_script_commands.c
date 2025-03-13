@@ -4703,7 +4703,33 @@ static void Cmd_getexp(void)
             gBattleScripting.getexpState = 6; // we're done
         }
         break;
-    case 6: // increment instruction
+    case 6: // check if wild Pokémon has a hold item after fainting
+        // TODO change the control to check itemDrop DONE
+        if (gBattleStruct->wildVictorySong && gBattleMons[gBattlerFainted].itemDrop != ITEM_NONE)
+        {
+            PrepareStringBattle(STRINGID_PKMNDROPPEDITEM, gBattleStruct->expGetterBattlerId);
+            gBattleScripting.getexpState = 7; // add item to bag
+        }
+        else
+        {
+            gBattleScripting.getexpState = 8; // no hold item, end battle
+        }
+        break;
+    case 7: // add dropped item to bag if space available
+        if (CheckBagHasSpace(gBattleMons[gBattlerFainted].itemDrop, 1) == TRUE)
+        {
+            AddBagItem(gBattleMons[gBattlerFainted].itemDrop, 1);
+            PREPARE_ITEM_BUFFER(gBattleTextBuff1, gBattleMons[gBattlerFainted].itemDrop);
+            PrepareStringBattle(STRINGID_ADDEDTOBAG, gBattleStruct->expGetterBattlerId);
+            gBattleScripting.getexpState = 8;
+        }
+        else
+        {
+            PrepareStringBattle(STRINGID_BAGISFULL, gBattleStruct->expGetterBattlerId);
+            gBattleScripting.getexpState = 8;
+        }
+        break;
+    case 8: // increment instruction
         if (gBattleControllerExecFlags == 0)
         {
             // not sure why gf clears the item and ability here
