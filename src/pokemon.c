@@ -6012,6 +6012,7 @@ void SetWildMonHeldItem(void)
                 s32 alteringCaveId = GetWildMonTableIdInAlteringCave(species);
                 if (alteringCaveId != 0)
                 {
+                    SetMonData(&gEnemyParty[i], MON_DATA_DROP_ITEM, &gSpeciesInfo[species].itemDrop);
                     // In active Altering Cave, use special item list
                     if (rnd < chanceNotRare)
                         continue;
@@ -6020,6 +6021,7 @@ void SetWildMonHeldItem(void)
                 else
                 {
                     // In inactive Altering Cave, use normal items
+                    SetMonData(&gEnemyParty[i], MON_DATA_DROP_ITEM, &gSpeciesInfo[species].itemDrop);
                     if (rnd < chanceNoItem)
                         continue;
                     if (rnd < chanceNotRare)
@@ -6030,7 +6032,6 @@ void SetWildMonHeldItem(void)
             }
             else
             {
-                //TODO here insert DONE
                 SetMonData(&gEnemyParty[i], MON_DATA_DROP_ITEM, &gSpeciesInfo[species].itemDrop);
                 if (gSpeciesInfo[species].itemCommon == gSpeciesInfo[species].itemRare && gSpeciesInfo[species].itemCommon != ITEM_NONE)
                 {

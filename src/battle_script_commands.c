@@ -4704,7 +4704,6 @@ static void Cmd_getexp(void)
         }
         break;
     case 6: // check if wild Pokémon has a hold item after fainting
-        // TODO change the control to check itemDrop DONE
         if (gBattleStruct->wildVictorySong && gBattleMons[gBattlerFainted].itemDrop != ITEM_NONE)
         {
             PrepareStringBattle(STRINGID_PKMNDROPPEDITEM, gBattleStruct->expGetterBattlerId);
@@ -4716,10 +4715,11 @@ static void Cmd_getexp(void)
         }
         break;
     case 7: // add dropped item to bag if space available
-        if (CheckBagHasSpace(gBattleMons[gBattlerFainted].itemDrop, 1) == TRUE)
+        u16 itemDrop = GetItemToDrop(gBattleMons[gBattlerFainted].itemDrop);
+        if (CheckBagHasSpace(itemDrop, 1) == TRUE)
         {
-            AddBagItem(gBattleMons[gBattlerFainted].itemDrop, 1);
-            PREPARE_ITEM_BUFFER(gBattleTextBuff1, gBattleMons[gBattlerFainted].itemDrop);
+            AddBagItem(itemDrop, 1);
+            PREPARE_ITEM_BUFFER(gBattleTextBuff1, itemDrop);
             PrepareStringBattle(STRINGID_ADDEDTOBAG, gBattleStruct->expGetterBattlerId);
             gBattleScripting.getexpState = 8;
         }
@@ -17566,4 +17566,28 @@ void BS_RemoveTerrain(void)
     NATIVE_ARGS();
     RemoveAllTerrains();
     gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+/**
+ * Mappa gli item da restituire
+ * @param item
+ * @return itemId espresso usando costanti di items.h
+ */
+u16 GetItemToDrop(u16 item)
+{
+    u16 itemDrop = ITEM_NONE;
+    switch (item) {
+        case 1:
+            itemDrop = ITEM_TINY_MUSHROOM;
+            break;
+        case 2:
+            itemDrop = ITEM_RAZOR_FANG;
+            break;
+            // TODO fare caso per cocci in cui il colore è casuale
+            // TODO fare caso per sotto insieme di bacche casuali
+        default:
+            itemDrop = ITEM_ORAN_BERRY;
+            break;
+    }
+    return itemDrop;
 }
