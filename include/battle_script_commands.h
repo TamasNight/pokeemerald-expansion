@@ -59,7 +59,7 @@ u8 GetFirstFaintedPartyIndex(u8 battlerId);
 bool32 IsMoveAffectedByParentalBond(u32 move, u32 battler);
 void SaveBattlerTarget(u32 battler);
 void SaveBattlerAttacker(u32 battler);
-u16 GetItemToDrop(u16 item);
+u16 GetItemToDrop(u16 item, u16 table, u8 type);
 
 extern void (* const gBattleScriptingCommandsTable[])(void);
 extern const struct StatFractions gAccuracyStageRatios[];

@@ -2491,7 +2491,10 @@ u32 GetBoxMonData3(struct BoxPokemon *boxMon, s32 field, u8 *data)
             retVal = substruct0->heldItem;
             break;
         case MON_DATA_DROP_ITEM:
-            retVal = substruct0->unused_02;
+            retVal = substruct0->unused_02; //itemDrop
+            break;
+        case MON_DATA_DROP_TABLE:
+            retVal = substruct1->unused_04; //dropTable
             break;
         case MON_DATA_EXP:
             retVal = substruct0->experience;
@@ -2986,6 +2989,9 @@ void SetBoxMonData(struct BoxPokemon *boxMon, s32 field, const void *dataArg)
             break;
         }
         //TODO add case DONE
+        case MON_DATA_DROP_TABLE:
+            SET16(substruct1->unused_04);
+            break;
         case MON_DATA_DROP_ITEM:
             SET16(substruct0->unused_02);
             break;
@@ -6013,6 +6019,7 @@ void SetWildMonHeldItem(void)
                 if (alteringCaveId != 0)
                 {
                     SetMonData(&gEnemyParty[i], MON_DATA_DROP_ITEM, &gSpeciesInfo[species].itemDrop);
+                    SetMonData(&gEnemyParty[i], MON_DATA_DROP_TABLE, &gSpeciesInfo[species].dropTable);
                     // In active Altering Cave, use special item list
                     if (rnd < chanceNotRare)
                         continue;
@@ -6022,6 +6029,7 @@ void SetWildMonHeldItem(void)
                 {
                     // In inactive Altering Cave, use normal items
                     SetMonData(&gEnemyParty[i], MON_DATA_DROP_ITEM, &gSpeciesInfo[species].itemDrop);
+                    SetMonData(&gEnemyParty[i], MON_DATA_DROP_TABLE, &gSpeciesInfo[species].dropTable);
                     if (rnd < chanceNoItem)
                         continue;
                     if (rnd < chanceNotRare)
@@ -6033,6 +6041,7 @@ void SetWildMonHeldItem(void)
             else
             {
                 SetMonData(&gEnemyParty[i], MON_DATA_DROP_ITEM, &gSpeciesInfo[species].itemDrop);
+                SetMonData(&gEnemyParty[i], MON_DATA_DROP_TABLE, &gSpeciesInfo[species].dropTable);
                 if (gSpeciesInfo[species].itemCommon == gSpeciesInfo[species].itemRare && gSpeciesInfo[species].itemCommon != ITEM_NONE)
                 {
                     // Both held items are the same, 100% chance to hold item

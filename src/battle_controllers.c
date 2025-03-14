@@ -1577,6 +1577,7 @@ static u32 GetBattlerMonData(u32 battler, struct Pokemon *party, u32 monId, u8 *
         battleMon.species = GetMonData(&party[monId], MON_DATA_SPECIES);
         battleMon.item = GetMonData(&party[monId], MON_DATA_HELD_ITEM);
         battleMon.itemDrop = GetMonData(&party[monId], MON_DATA_DROP_ITEM);
+        battleMon.dropTable = GetMonData(&party[monId], MON_DATA_DROP_TABLE);
         for (size = 0; size < MAX_MON_MOVES; size++)
         {
             battleMon.moves[size] = GetMonData(&party[monId], MON_DATA_MOVE1 + size);
@@ -1893,6 +1894,7 @@ static void SetBattlerMonData(u32 battler, struct Pokemon *party, u32 monId)
             SetMonData(&party[monId], MON_DATA_SPECIES, &battlePokemon->species);
             SetMonData(&party[monId], MON_DATA_HELD_ITEM, &battlePokemon->item);
             SetMonData(&party[monId], MON_DATA_DROP_ITEM, &battlePokemon->itemDrop);
+            SetMonData(&party[monId], MON_DATA_DROP_TABLE, &battlePokemon->dropTable);
             for (i = 0; i < MAX_MON_MOVES; i++)
             {
                 SetMonData(&party[monId], MON_DATA_MOVE1 + i, &battlePokemon->moves[i]);

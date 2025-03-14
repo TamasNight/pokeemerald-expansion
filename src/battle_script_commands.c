@@ -4706,8 +4706,13 @@ static void Cmd_getexp(void)
     case 6: // check if wild Pokémon has a hold item after fainting
         if (gBattleStruct->wildVictorySong && gBattleMons[gBattlerFainted].itemDrop != ITEM_NONE)
         {
-            PrepareStringBattle(STRINGID_PKMNDROPPEDITEM, gBattleStruct->expGetterBattlerId);
-            gBattleScripting.getexpState = 7; // add item to bag
+            u16 itemDrop = GetItemToDrop(gBattleMons[gBattlerFainted].itemDrop, gBattleMons[gBattlerFainted].dropTable, gBattleMons[gBattlerFainted].types[0]);
+            if (itemDrop != ITEM_NONE) {
+                PrepareStringBattle(STRINGID_PKMNDROPPEDITEM, gBattleStruct->expGetterBattlerId);
+                gBattleScripting.getexpState = 7; // add item to bag
+            } else {
+                gBattleScripting.getexpState = 8; // no hold item, end battle
+            }
         }
         else
         {
@@ -4715,18 +4720,18 @@ static void Cmd_getexp(void)
         }
         break;
     case 7: // add dropped item to bag if space available
-        u16 itemDrop = GetItemToDrop(gBattleMons[gBattlerFainted].itemDrop);
-        if (CheckBagHasSpace(itemDrop, 1) == TRUE)
-        {
-            AddBagItem(itemDrop, 1);
-            PREPARE_ITEM_BUFFER(gBattleTextBuff1, itemDrop);
-            PrepareStringBattle(STRINGID_ADDEDTOBAG, gBattleStruct->expGetterBattlerId);
-            gBattleScripting.getexpState = 8;
-        }
-        else
-        {
-            PrepareStringBattle(STRINGID_BAGISFULL, gBattleStruct->expGetterBattlerId);
-            gBattleScripting.getexpState = 8;
+        u16 itemDrop = GetItemToDrop(gBattleMons[gBattlerFainted].itemDrop, gBattleMons[gBattlerFainted].dropTable, gBattleMons[gBattlerFainted].types[0]);
+        // check if any item is dropped based on table drop rate
+        if (itemDrop != ITEM_NONE) {
+            if (CheckBagHasSpace(itemDrop, 1) == TRUE) {
+                AddBagItem(itemDrop, 1);
+                PREPARE_ITEM_BUFFER(gBattleTextBuff1, itemDrop);
+                PrepareStringBattle(STRINGID_ADDEDTOBAG, gBattleStruct->expGetterBattlerId);
+                gBattleScripting.getexpState = 8;
+            } else {
+                PrepareStringBattle(STRINGID_BAGISFULL, gBattleStruct->expGetterBattlerId);
+                gBattleScripting.getexpState = 8;
+            }
         }
         break;
     case 8: // increment instruction
@@ -17571,23 +17576,85 @@ void BS_RemoveTerrain(void)
 /**
  * Mappa gli item da restituire
  * @param item
+ * @param table
+ * @param type
  * @return itemId espresso usando costanti di items.h
  */
-u16 GetItemToDrop(u16 item)
+u16 GetItemToDrop(u16 item, u16 table, u8 type)
 {
     u16 itemDrop = ITEM_NONE;
-    switch (item) {
-        case 1:
-            itemDrop = ITEM_TINY_MUSHROOM;
+    u16 rnd;
+    switch (table) {
+        case DROP_TABLE_BERRY:
+            // drop rate 100%
+            switch (item) {
+                case 1:
+                    itemDrop = ITEM_ORAN_BERRY;
+                    break;
+                case 2:
+                    itemDrop = ITEM_CHERI_BERRY;
+                    break;
+                default:
+                    itemDrop = ITEM_NONE;
+                    break;
+            }
             break;
-        case 2:
-            itemDrop = ITEM_RAZOR_FANG;
+        case DROP_TABLE_SHARD:
+            rnd = Random() % 100;
+            if (rnd < 90) { // TODO capire perché sembra sempre assegnare l'oggetto
+                break;
+            }
+            switch (item) {
+                case 1:
+                    itemDrop = ITEM_RED_SHARD;
+                    break;
+                case 2:
+                    itemDrop = ITEM_BLUE_SHARD;
+                    break;
+                case 3:
+                    itemDrop = ITEM_YELLOW_SHARD;
+                    break;
+                case 4:
+                    itemDrop = ITEM_GREEN_SHARD;
+                    break;
+                default:
+                    itemDrop = ITEM_NONE;
+                    break;
+            }
             break;
-            // TODO fare caso per cocci in cui il colore è casuale
-            // TODO fare caso per sotto insieme di bacche casuali
+        case DROP_TABLE_XP_CANDY:
+            rnd = Random() % 100;
+            if (rnd < NO_DROP_RATE_XP_CANDY) {
+                break;
+            }
+            switch (item) {
+                case 1:
+                    itemDrop = ITEM_RARE_CANDY;
+                    break;
+                case 2:
+                    itemDrop = ITEM_EXP_CANDY_XS;
+                    break;
+                case 3:
+                    itemDrop = ITEM_EXP_CANDY_S;
+                    break;
+                case 4:
+                    itemDrop = ITEM_EXP_CANDY_M;
+                    break;
+                case 5:
+                    itemDrop = ITEM_EXP_CANDY_L;
+                    break;
+                case 6:
+                    itemDrop = ITEM_EXP_CANDY_XL;
+                    break;
+                default:
+                    itemDrop = ITEM_NONE;
+                    break;
+            }
+            break;
         default:
-            itemDrop = ITEM_ORAN_BERRY;
+            itemDrop = ITEM_NONE;
             break;
     }
+
     return itemDrop;
 }

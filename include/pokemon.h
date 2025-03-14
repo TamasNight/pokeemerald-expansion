@@ -117,6 +117,7 @@ enum {
     MON_DATA_TERA_TYPE,
     MON_DATA_EVOLUTION_TRACKER,
     MON_DATA_DROP_ITEM,
+    MON_DATA_DROP_TABLE,
 };
 
 struct PokemonSubstruct0
@@ -142,7 +143,7 @@ struct PokemonSubstruct1
     u16 move2:11; // 2047 moves.
     u16 evolutionTracker2:5;
     u16 move3:11; // 2047 moves.
-    u16 unused_04:5;
+    u16 unused_04:5; // 31 itemDrop tables TODO
     u16 move4:11; // 2047 moves.
     u16 unused_06:3;
     u16 hyperTrainedHP:1;
@@ -332,6 +333,7 @@ struct BattlePokemon
     /*0x2D*/ u16 maxHP;
     /*0x2F*/ u16 item;
     /*0x30*/ u16 itemDrop;
+    /*0x30*/ u16 dropTable;
     /*0x31*/ u8 nickname[POKEMON_NAME_LENGTH + 1];
     /*0x3C*/ u8 ppBonuses;
     /*0x3D*/ u8 otName[PLAYER_NAME_LENGTH + 1];
@@ -373,6 +375,7 @@ struct SpeciesInfo /*0xC4*/
     u16 itemCommon;
     u16 itemRare;
     u16 itemDrop;
+    u16 dropTable;
     u8 genderRatio;
     u8 eggCycles;
     u8 friendship;

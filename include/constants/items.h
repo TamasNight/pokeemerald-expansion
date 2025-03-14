@@ -1078,4 +1078,14 @@
 // Enigma Berry dummy constant
 #define EFFECT_ITEM_ENIGMA_BERRY_EREADER    1
 
+// Drop Table names and IDs (max 31)
+#define DROP_TABLE_BERRY                0
+#define DROP_TABLE_SHARD                1
+#define DROP_TABLE_XP_CANDY             2
+
+// Table drop rate
+#define NO_DROP_RATE_BERRY              0
+#define NO_DROP_RATE_SHARD              60
+#define NO_DROP_RATE_XP_CANDY           75
+
 #endif  // GUARD_CONSTANTS_ITEMS_H
