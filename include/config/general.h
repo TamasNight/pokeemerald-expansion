@@ -5,7 +5,7 @@
 // Ruby/Sapphire and Emerald do not have these asserts while Fire Red
 // still has them in the ROM. This is because the developers forgot
 // to define NDEBUG before release, however this has been changed as
-// Ruby's actual debug build does not use the AGBPrint features.
+//  TODO togliere commento per versione finale
 // #define NDEBUG
 
 // To enable printf debugging, comment out "#define NDEBUG". This allows
