@@ -4411,9 +4411,7 @@ static void Cmd_getexp(void)
     u32 holdEffect;
     s32 i; // also used as stringId
     u8 *expMonId = &gBattleStruct->expGetterMonId;
-
     gBattlerFainted = GetBattlerForBattleScript(cmd->battler);
-
     switch (gBattleScripting.getexpState)
     {
     case 0: // check if should receive exp at all
@@ -4703,38 +4701,31 @@ static void Cmd_getexp(void)
             gBattleScripting.getexpState = 6; // we're done
         }
         break;
-    case 6: // check if wild Pokémon has a hold item after fainting
+    case 6: // check if wild Pokémon has a drop item after fainting and give item to player
         if (gBattleStruct->wildVictorySong && gBattleMons[gBattlerFainted].itemDrop != ITEM_NONE)
         {
             u16 itemDrop = GetItemToDrop(gBattleMons[gBattlerFainted].itemDrop, gBattleMons[gBattlerFainted].dropTable, gBattleMons[gBattlerFainted].types[0]);
+            DebugPrintf("itemDrop: %d", itemDrop);
             if (itemDrop != ITEM_NONE) {
-                PrepareStringBattle(STRINGID_PKMNDROPPEDITEM, gBattleStruct->expGetterBattlerId);
-                gBattleScripting.getexpState = 7; // add item to bag
+                if (CheckBagHasSpace(itemDrop, 1) == TRUE) {
+                    AddBagItem(itemDrop, 1);
+                    PREPARE_ITEM_BUFFER(gBattleTextBuff1, itemDrop);
+                    PrepareStringBattle(STRINGID_ADDEDTOBAG, gBattleStruct->expGetterBattlerId);
+                    gBattleScripting.getexpState = 7;
+                } else {
+                    PrepareStringBattle(STRINGID_BAGISFULL, gBattleStruct->expGetterBattlerId);
+                    gBattleScripting.getexpState = 7;
+                }
             } else {
-                gBattleScripting.getexpState = 8; // no hold item, end battle
+                gBattleScripting.getexpState = 7; // no hold item, end battle
             }
         }
         else
         {
-            gBattleScripting.getexpState = 8; // no hold item, end battle
+            gBattleScripting.getexpState = 7; // no hold item, end battle
         }
         break;
-    case 7: // add dropped item to bag if space available
-        u16 itemDrop = GetItemToDrop(gBattleMons[gBattlerFainted].itemDrop, gBattleMons[gBattlerFainted].dropTable, gBattleMons[gBattlerFainted].types[0]);
-        // check if any item is dropped based on table drop rate
-        if (itemDrop != ITEM_NONE) {
-            if (CheckBagHasSpace(itemDrop, 1) == TRUE) {
-                AddBagItem(itemDrop, 1);
-                PREPARE_ITEM_BUFFER(gBattleTextBuff1, itemDrop);
-                PrepareStringBattle(STRINGID_ADDEDTOBAG, gBattleStruct->expGetterBattlerId);
-                gBattleScripting.getexpState = 8;
-            } else {
-                PrepareStringBattle(STRINGID_BAGISFULL, gBattleStruct->expGetterBattlerId);
-                gBattleScripting.getexpState = 8;
-            }
-        }
-        break;
-    case 8: // increment instruction
+    case 7: // increment instruction
         if (gBattleControllerExecFlags == 0)
         {
             // not sure why gf clears the item and ability here
@@ -17583,10 +17574,13 @@ void BS_RemoveTerrain(void)
 u16 GetItemToDrop(u16 item, u16 table, u8 type)
 {
     u16 itemDrop = ITEM_NONE;
-    u16 rnd;
+    u16 rnd = Random() % 100;
     switch (table) {
         case DROP_TABLE_BERRY:
-            // drop rate 100%
+            DebugPrintf("BERRY: Random = %d", rnd);
+            if (rnd < NO_DROP_RATE_BERRY) {
+                break;
+            }
             switch (item) {
                 case 1:
                     itemDrop = ITEM_ORAN_BERRY;
@@ -17600,8 +17594,8 @@ u16 GetItemToDrop(u16 item, u16 table, u8 type)
             }
             break;
         case DROP_TABLE_SHARD:
-            rnd = Random() % 100;
-            if (rnd < 90) { // TODO capire perché sembra sempre assegnare l'oggetto
+            DebugPrintf("SHARD: Random = %d", rnd);
+            if (rnd < NO_DROP_RATE_SHARD) {
                 break;
             }
             switch (item) {
@@ -17623,7 +17617,7 @@ u16 GetItemToDrop(u16 item, u16 table, u8 type)
             }
             break;
         case DROP_TABLE_XP_CANDY:
-            rnd = Random() % 100;
+            DebugPrintf("XP_CANDY: Random = %d", rnd);
             if (rnd < NO_DROP_RATE_XP_CANDY) {
                 break;
             }
