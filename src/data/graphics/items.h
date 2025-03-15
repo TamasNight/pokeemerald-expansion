@@ -2099,3 +2099,9 @@ const u32 gItemIconPalette_SwapSnack[] = INCBIN_U32("graphics/items/icon_palette
 
 const u32 gItemIcon_TwiceSpicedRadish[] = INCBIN_U32("graphics/items/icons/twice_spiced_radish.4bpp.lz");
 const u32 gItemIconPalette_TwiceSpicedRadish[] = INCBIN_U32("graphics/items/icon_palettes/twice_spiced_radish.gbapal.lz");
+
+// hack graphics TODO pointer
+const u32 gItemIcon_TypeShard[] = INCBIN_U32("graphics/items/icons/type_shard.4bpp.lz");
+const u32 gItemIconPalette_GrassShard[] = INCBIN_U32("graphics/items/icon_palettes/grass_tm_hm.gbapal.lz");
+const u32 gItemIconPalette_WaterShard[] = INCBIN_U32("graphics/items/icon_palettes/water_tm_hm.gbapal.lz");
+const u32 gItemIconPalette_FireShard[] = INCBIN_U32("graphics/items/icon_palettes/fire_tm_hm.gbapal.lz");

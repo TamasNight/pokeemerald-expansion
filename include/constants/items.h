@@ -997,7 +997,13 @@
 // HOPO BERRY
 // LEGEND PLATE
 
-#define ITEMS_COUNT 829
+// Hack items start here TODO pointer
+// Shard items
+#define ITEM_GRASS_SHARD        829
+#define ITEM_WATER_SHARD        830
+#define ITEM_FIRE_SHARD         831
+
+#define ITEMS_COUNT 832
 #define ITEM_FIELD_ARROW ITEMS_COUNT
 
 // A special item id associated with "Cancel"/"Exit" etc. in a list of items or decorations

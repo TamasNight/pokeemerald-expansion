@@ -14093,4 +14093,49 @@ const struct Item gItemsInfo[] =
         .iconPic = gItemIcon_PokeshiDoll,
         .iconPalette = gItemIconPalette_PokeshiDoll,
     },
+
+    [ITEM_GRASS_SHARD] =
+    {
+        .name = _("Grass Shard"),
+        .price = 20,
+        .description = COMPOUND_STRING(
+            "A fragment with gra-.\n",
+            "ss energy. Can be used\n",
+            "in crafting or sold."),
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_TypeShard,
+        .iconPalette = gItemIconPalette_GrassShard,
+    },
+
+    [ITEM_WATER_SHARD] =
+    {
+        .name = _("Water Shard"),
+        .price = 20,
+        .description = COMPOUND_STRING(
+            "A fragment with wat-.\n",
+            "er energy. Can be used\n",
+            "in crafting or sold."),
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_TypeShard,
+        .iconPalette = gItemIconPalette_WaterShard,
+    },
+
+    [ITEM_GRASS_SHARD] =
+    {
+        .name = _("Fire Shard"),
+        .price = 20,
+        .description = COMPOUND_STRING(
+            "A fragment with fire\n",
+            "energy. Can be used\n",
+            "in crafting or sold."),
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_TypeShard,
+        .iconPalette = gItemIconPalette_FireShard,
+    },
 };
