@@ -14099,8 +14099,8 @@ const struct Item gItemsInfo[] =
         .name = _("Grass Shard"),
         .price = 20,
         .description = COMPOUND_STRING(
-            "A fragment with gra-.\n",
-            "ss energy. Can be used\n",
+            "A fragment of grass\n"
+            "energy. Can be used\n"
             "in crafting or sold."),
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
@@ -14114,8 +14114,8 @@ const struct Item gItemsInfo[] =
         .name = _("Water Shard"),
         .price = 20,
         .description = COMPOUND_STRING(
-            "A fragment with wat-.\n",
-            "er energy. Can be used\n",
+            "A fragment of water\n"
+            "energy. Can be used\n"
             "in crafting or sold."),
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
@@ -14124,13 +14124,13 @@ const struct Item gItemsInfo[] =
         .iconPalette = gItemIconPalette_WaterShard,
     },
 
-    [ITEM_GRASS_SHARD] =
+    [ITEM_FIRE_SHARD] =
     {
         .name = _("Fire Shard"),
         .price = 20,
         .description = COMPOUND_STRING(
-            "A fragment with fire\n",
-            "energy. Can be used\n",
+            "A fragment with fire\n"
+            "energy. Can be used\n"
             "in crafting or sold."),
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,

@@ -17600,16 +17600,13 @@ u16 GetItemToDrop(u16 item, u16 table, u8 type)
             }
             switch (item) {
                 case 1:
-                    itemDrop = ITEM_RED_SHARD;
+                    itemDrop = ITEM_GRASS_SHARD;
                     break;
                 case 2:
-                    itemDrop = ITEM_BLUE_SHARD;
+                    itemDrop = ITEM_WATER_SHARD;
                     break;
                 case 3:
-                    itemDrop = ITEM_YELLOW_SHARD;
-                    break;
-                case 4:
-                    itemDrop = ITEM_GREEN_SHARD;
+                    itemDrop = ITEM_FIRE_SHARD;
                     break;
                 default:
                     itemDrop = ITEM_NONE;

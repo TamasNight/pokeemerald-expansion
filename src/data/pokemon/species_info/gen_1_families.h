@@ -5306,6 +5306,8 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .expYield = (P_UPDATED_EXP_YIELDS >= GEN_5) ? 64 : 78,
         .evYield_SpAttack = 1,
         .itemRare = ITEM_ABSORB_BULB,
+        .itemDrop = 1,
+        .dropTable = DROP_TABLE_SHARD,
         .genderRatio = PERCENT_FEMALE(50),
         .eggCycles = 20,
         .friendship = STANDARD_FRIENDSHIP,
