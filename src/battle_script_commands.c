@@ -17608,6 +17608,51 @@ u16 GetItemToDrop(u16 item, u16 table, u8 type)
                 case 3:
                     itemDrop = ITEM_FIRE_SHARD;
                     break;
+                case 4:
+                    itemDrop = ITEM_NORMAL_SHARD;
+                    break;
+                case 5:
+                    itemDrop = ITEM_ELECTRIC_SHARD;
+                    break;
+                case 6:
+                    itemDrop = ITEM_ROCK_SHARD;
+                    break;
+                case 7:
+                    itemDrop = ITEM_GROUND_SHARD;
+                    break;
+                case 8:
+                    itemDrop = ITEM_BUG_SHARD;
+                    break;
+                case 9:
+                    itemDrop = ITEM_DARK_SHARD;
+                    break;
+                case 10:
+                    itemDrop = ITEM_POISON_SHARD;
+                    break;
+                case 11:
+                    itemDrop = ITEM_PSYCHIC_SHARD;
+                    break;
+                case 12:
+                    itemDrop = ITEM_STEEL_SHARD;
+                    break;
+                case 13:
+                    itemDrop = ITEM_ICE_SHARD;
+                    break;
+                case 14:
+                    itemDrop = ITEM_DRAGON_SHARD;
+                    break;
+                case 15:
+                    itemDrop = ITEM_FAIRY_SHARD;
+                    break;
+                case 16:
+                    itemDrop = ITEM_FIGHTING_SHARD;
+                    break;
+                case 17:
+                    itemDrop = ITEM_FLYING_SHARD;
+                    break;
+                case 18:
+                    itemDrop = ITEM_GHOST_SHARD;
+                    break;
                 default:
                     itemDrop = ITEM_NONE;
                     break;
