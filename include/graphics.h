@@ -1748,6 +1748,21 @@ extern const u32 gItemIcon_TypeShard[];
 extern const u32 gItemIconPalette_GrassShard[];
 extern const u32 gItemIconPalette_WaterShard[];
 extern const u32 gItemIconPalette_FireShard[];
+extern const u32 gItemIconPalette_NormalShard[];
+extern const u32 gItemIconPalette_ElectricShard[];
+extern const u32 gItemIconPalette_RockShard[];
+extern const u32 gItemIconPalette_GroundShard[];
+extern const u32 gItemIconPalette_BugShard[];
+extern const u32 gItemIconPalette_DarkShard[];
+extern const u32 gItemIconPalette_PoisonShard[];
+extern const u32 gItemIconPalette_PsychicShard[];
+extern const u32 gItemIconPalette_SteelShard[];
+extern const u32 gItemIconPalette_IceShard[];
+extern const u32 gItemIconPalette_DragonShard[];
+extern const u32 gItemIconPalette_FairyShard[];
+extern const u32 gItemIconPalette_FightingShard[];
+extern const u32 gItemIconPalette_FlyingShard[];
+extern const u32 gItemIconPalette_GhostShard[];
 
 //menu graphics
 extern const u16 gMenuInfoElements1_Pal[16];

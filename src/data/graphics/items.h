@@ -2102,6 +2102,21 @@ const u32 gItemIconPalette_TwiceSpicedRadish[] = INCBIN_U32("graphics/items/icon
 
 // hack graphics TODO pointer
 const u32 gItemIcon_TypeShard[] = INCBIN_U32("graphics/items/icons/type_shard.4bpp.lz");
-const u32 gItemIconPalette_GrassShard[] = INCBIN_U32("graphics/items/icon_palettes/grass_tm_hm.gbapal.lz");
-const u32 gItemIconPalette_WaterShard[] = INCBIN_U32("graphics/items/icon_palettes/water_tm_hm.gbapal.lz");
-const u32 gItemIconPalette_FireShard[] = INCBIN_U32("graphics/items/icon_palettes/fire_tm_hm.gbapal.lz");
+const u32 gItemIconPalette_GrassShard[]    = INCBIN_U32("graphics/items/icon_palettes/grass_tm_hm.gbapal.lz");
+const u32 gItemIconPalette_WaterShard[]    = INCBIN_U32("graphics/items/icon_palettes/water_tm_hm.gbapal.lz");
+const u32 gItemIconPalette_FireShard[]     = INCBIN_U32("graphics/items/icon_palettes/fire_tm_hm.gbapal.lz");
+const u32 gItemIconPalette_NormalShard[]   = INCBIN_U32("graphics/items/icon_palettes/normal_tm_hm.gbapal.lz");
+const u32 gItemIconPalette_ElectricShard[] = INCBIN_U32("graphics/items/icon_palettes/electric_tm_hm.gbapal.lz");
+const u32 gItemIconPalette_RockShard[]     = INCBIN_U32("graphics/items/icon_palettes/rock_tm_hm.gbapal.lz");
+const u32 gItemIconPalette_GroundShard[]   = INCBIN_U32("graphics/items/icon_palettes/ground_tm_hm.gbapal.lz");
+const u32 gItemIconPalette_BugShard[]      = INCBIN_U32("graphics/items/icon_palettes/bug_tm_hm.gbapal.lz");
+const u32 gItemIconPalette_DarkShard[]     = INCBIN_U32("graphics/items/icon_palettes/dark_tm_hm.gbapal.lz");
+const u32 gItemIconPalette_PoisonShard[]   = INCBIN_U32("graphics/items/icon_palettes/poison_tm_hm.gbapal.lz");
+const u32 gItemIconPalette_PsychicShard[]  = INCBIN_U32("graphics/items/icon_palettes/psychic_tm_hm.gbapal.lz");
+const u32 gItemIconPalette_SteelShard[]    = INCBIN_U32("graphics/items/icon_palettes/steel_tm_hm.gbapal.lz");
+const u32 gItemIconPalette_IceShard[]      = INCBIN_U32("graphics/items/icon_palettes/ice_tm_hm.gbapal.lz");
+const u32 gItemIconPalette_DragonShard[]   = INCBIN_U32("graphics/items/icon_palettes/dragon_tm_hm.gbapal.lz");
+const u32 gItemIconPalette_FairyShard[]    = INCBIN_U32("graphics/items/icon_palettes/fairy_tm_hm.gbapal.lz");
+const u32 gItemIconPalette_FightingShard[] = INCBIN_U32("graphics/items/icon_palettes/fighting_tm_hm.gbapal.lz");
+const u32 gItemIconPalette_FlyingShard[]   = INCBIN_U32("graphics/items/icon_palettes/flying_tm_hm.gbapal.lz");
+const u32 gItemIconPalette_GhostShard[]    = INCBIN_U32("graphics/items/icon_palettes/ghost_tm_hm.gbapal.lz");

@@ -14138,4 +14138,230 @@ const struct Item gItemsInfo[] =
         .iconPic = gItemIcon_TypeShard,
         .iconPalette = gItemIconPalette_FireShard,
     },
+
+    [ITEM_NORMAL_SHARD] =
+    {
+        .name = _("Normal Shard"),
+        .price = 20,
+        .description = COMPOUND_STRING(
+            "A fragment of pure\n"
+            "energy. Can be used\n"
+            "in crafting or sold."),
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_TypeShard,
+        .iconPalette = gItemIconPalette_NormalShard,
+    },
+
+    [ITEM_ELECTRIC_SHARD] =
+    {
+        .name = _("Electric Shard"),
+        .price = 20,
+        .description = COMPOUND_STRING(
+            "A fragment of light\n"
+            "energy. Can be used\n"
+            "in crafting or sold."),
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_TypeShard,
+        .iconPalette = gItemIconPalette_ElectricShard,
+    },
+
+    [ITEM_ROCK_SHARD] =
+    {
+        .name = _("Rock Shard"),
+        .price = 20,
+        .description = COMPOUND_STRING(
+            "A fragment of rock\n"
+            "energy. Can be used\n"
+            "in crafting or sold."),
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_TypeShard,
+        .iconPalette = gItemIconPalette_RockShard,
+    },
+
+    [ITEM_GROUND_SHARD] =
+    {
+        .name = _("Ground Shard"),
+        .price = 20,
+        .description = COMPOUND_STRING(
+            "A fragment of earth\n"
+            "energy. Can be used\n"
+            "in crafting or sold."),
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_TypeShard,
+        .iconPalette = gItemIconPalette_GroundShard,
+    },
+
+    [ITEM_BUG_SHARD] =
+    {
+        .name = _("Bug Shard"),
+        .price = 20,
+        .description = COMPOUND_STRING(
+            "A fragment of bug\n"
+            "energy. Can be used\n"
+            "in crafting or sold."),
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_TypeShard,
+        .iconPalette = gItemIconPalette_BugShard,
+    },
+
+    [ITEM_DARK_SHARD] =
+    {
+        .name = _("Dark Shard"),
+        .price = 20,
+        .description = COMPOUND_STRING(
+            "A fragment of dark\n"
+            "energy. Can be used\n"
+            "in crafting or sold."),
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_TypeShard,
+        .iconPalette = gItemIconPalette_DarkShard,
+    },
+
+    [ITEM_POISON_SHARD] =
+    {
+        .name = _("Poison Shard"),
+        .price = 20,
+        .description = COMPOUND_STRING(
+            "A fragment of poison\n"
+            "energy. Can be used\n"
+            "in crafting or sold."),
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_TypeShard,
+        .iconPalette = gItemIconPalette_PoisonShard,
+    },
+
+    [ITEM_PSYCHIC_SHARD] =
+    {
+        .name = _("Psychic Shard"),
+        .price = 20,
+        .description = COMPOUND_STRING(
+            "A fragment of mental\n"
+            "energy. Can be used\n"
+            "in crafting or sold."),
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_TypeShard,
+        .iconPalette = gItemIconPalette_PsychicShard,
+    },
+
+    [ITEM_STEEL_SHARD] =
+    {
+        .name = _("Steel Shard"),
+        .price = 20,
+        .description = COMPOUND_STRING(
+            "A fragment of steel\n"
+            "energy. Can be used\n"
+            "in crafting or sold."),
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_TypeShard,
+        .iconPalette = gItemIconPalette_SteelShard,
+    },
+
+    [ITEM_ICE_SHARD] =
+    {
+        .name = _("Ice Shard"),
+        .price = 20,
+        .description = COMPOUND_STRING(
+            "A fragment of ice\n"
+            "energy. Can be used\n"
+            "in crafting or sold."),
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_TypeShard,
+        .iconPalette = gItemIconPalette_IceShard,
+    },
+
+    [ITEM_DRAGON_SHARD] =
+    {
+        .name = _("Dragon Shard"),
+        .price = 20,
+        .description = COMPOUND_STRING(
+            "A fragment of dragon\n"
+            "energy. Can be used\n"
+            "in crafting or sold."),
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_TypeShard,
+        .iconPalette = gItemIconPalette_DragonShard,
+    },
+
+    [ITEM_FAIRY_SHARD] =
+    {
+        .name = _("Fairy Shard"),
+        .price = 20,
+        .description = COMPOUND_STRING(
+            "A fragment of fairy\n"
+            "energy. Can be used\n"
+            "in crafting or sold."),
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_TypeShard,
+        .iconPalette = gItemIconPalette_FairyShard,
+    },
+
+    [ITEM_FIGHTING_SHARD] =
+    {
+        .name = _("Fighting Shard"),
+        .price = 20,
+        .description = COMPOUND_STRING(
+            "A fragment of fight\n"
+            "energy. Can be used\n"
+            "in crafting or sold."),
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_TypeShard,
+        .iconPalette = gItemIconPalette_FightingShard,
+    },
+
+    [ITEM_FLYING_SHARD] =
+    {
+        .name = _("Flying Shard"),
+        .price = 20,
+        .description = COMPOUND_STRING(
+            "A fragment of air\n"
+            "energy. Can be used\n"
+            "in crafting or sold."),
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_TypeShard,
+        .iconPalette = gItemIconPalette_FlyingShard,
+    },
+
+    [ITEM_GHOST_SHARD] =
+    {
+        .name = _("Ghost Shard"),
+        .price = 20,
+        .description = COMPOUND_STRING(
+            "A fragment of ghost\n"
+            "energy. Can be used\n"
+            "in crafting or sold."),
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_TypeShard,
+        .iconPalette = gItemIconPalette_GhostShard,
+    },
+
 };

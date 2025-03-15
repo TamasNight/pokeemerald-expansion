@@ -1002,8 +1002,23 @@
 #define ITEM_GRASS_SHARD        829
 #define ITEM_WATER_SHARD        830
 #define ITEM_FIRE_SHARD         831
+#define ITEM_NORMAL_SHARD       832
+#define ITEM_ELECTRIC_SHARD     833
+#define ITEM_ROCK_SHARD         834
+#define ITEM_GROUND_SHARD       835
+#define ITEM_BUG_SHARD          836
+#define ITEM_DARK_SHARD         837
+#define ITEM_POISON_SHARD       838
+#define ITEM_PSYCHIC_SHARD      839
+#define ITEM_STEEL_SHARD        840
+#define ITEM_ICE_SHARD          841
+#define ITEM_DRAGON_SHARD       842
+#define ITEM_FAIRY_SHARD        843
+#define ITEM_FIGHTING_SHARD     844
+#define ITEM_FLYING_SHARD       845
+#define ITEM_GHOST_SHARD        846
 
-#define ITEMS_COUNT 832
+#define ITEMS_COUNT 847
 #define ITEM_FIELD_ARROW ITEMS_COUNT
 
 // A special item id associated with "Cancel"/"Exit" etc. in a list of items or decorations
