@@ -3658,12 +3658,26 @@ static void PrintLeftColumnStats(void)
 
 static void BufferRightColumnStats(void)
 {
-    // sMonSummaryScreen->summary non comprende EVs e IVs trovare come aggiungere
+    u16 atk, def, spA, spD, spe;
+    u8 *spDefString = Alloc(20);
+    u8 *speedString = Alloc(20);
+
+    atk = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_ATK_IV);
+    def = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_DEF_IV);
+    spA = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_SPATK_IV);
+    spD = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_SPDEF_IV);
+    spe = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_SPEED_IV);
+    
     DynamicPlaceholderTextUtil_Reset();
-    BufferStat(gStringVar1, STAT_SPATK, sMonSummaryScreen->summary.spatk, 0, 3);
-    BufferStat(gStringVar2, STAT_SPDEF, sMonSummaryScreen->summary.spdef, 1, 3);
-    BufferStat(gStringVar3, STAT_SPEED, sMonSummaryScreen->summary.speed, 2, 3);
-    DynamicPlaceholderTextUtil_ExpandPlaceholders(gStringVar4, sStatsRightColumnLayout);
+    BufferStat(gStringVar1, 0, atk, 0, 3);
+    BufferStat(gStringVar2, 0, def, 1, 3);
+    BufferStat(gStringVar3, 0, spA, 2, 3);
+    BufferStat(spDefString, 0, spD, 3, 3);
+    BufferStat(speedString, 0, spe, 4, 3);
+    DynamicPlaceholderTextUtil_ExpandPlaceholders(gStringVar4, sStatsLeftColumnLayout);
+
+    Free(spDefString);
+    Free(speedString);
 }
 
 static void PrintRightColumnStats(void)
