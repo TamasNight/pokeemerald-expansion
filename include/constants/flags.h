@@ -1387,13 +1387,13 @@
 #define FLAG_IS_CHAMPION                            (SYSTEM_FLAGS + 0x1F) // Seems to be related to linking.
 #define FLAG_NURSE_UNION_ROOM_REMINDER              (SYSTEM_FLAGS + 0x20)
 
-#define FLAG_UNUSED_0x881                           (SYSTEM_FLAGS + 0x21) // Unused Flag
-#define FLAG_UNUSED_0x882                           (SYSTEM_FLAGS + 0x22) // Unused Flag
-#define FLAG_UNUSED_0x883                           (SYSTEM_FLAGS + 0x23) // Unused Flag
-#define FLAG_UNUSED_0x884                           (SYSTEM_FLAGS + 0x24) // Unused Flag
-#define FLAG_UNUSED_0x885                           (SYSTEM_FLAGS + 0x25) // Unused Flag
-#define FLAG_UNUSED_0x886                           (SYSTEM_FLAGS + 0x26) // Unused Flag
-#define FLAG_UNUSED_0x887                           (SYSTEM_FLAGS + 0x27) // Unused Flag
+#define FLAG_BATTLE_0x881                           (SYSTEM_FLAGS + 0x21) // If this flag is set, all land and surfing wild battles will be double battles.
+#define FLAG_BATTLE_0x882                           (SYSTEM_FLAGS + 0x22) // If not 0, you can set this flag in a script to enable smart wild pokemon
+#define FLAG_BATTLE_0x883                           (SYSTEM_FLAGS + 0x23) // If this flag is set, the ability to use the bag in battle is disabled.
+#define FLAG_BATTLE_0x884                           (SYSTEM_FLAGS + 0x24) // If this flag is set, the ability to catch wild Pokémon is disabled.
+#define FLAG_BATTLE_0x885                           (SYSTEM_FLAGS + 0x25) // If this flag is set, the ability to escape from wild battles is disabled. Also makes Roar/Whirlwind and Teleport (under Gen8) fail.
+#define FLAG_BATTLE_0x886                           (SYSTEM_FLAGS + 0x26) // If this flag is set, the player's mons will be controlled by the ai next battles.
+#define FLAG_BATTLE_0x887                           (SYSTEM_FLAGS + 0x27) // If this flag is set, the ability to Dynamax in battle is enabled for all trainers.
 
 #define FLAG_SYS_USE_FLASH                          (SYSTEM_FLAGS + 0x28)
 #define FLAG_SYS_USE_STRENGTH                       (SYSTEM_FLAGS + 0x29)
