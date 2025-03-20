@@ -149,8 +149,5 @@
 	.include "src/faraway_island.o"
 	.include "src/trainer_hill.o"
 	.include "src/rayquaza_scene.o"
-<<<<<<< HEAD
 	.include "src/ui_startmenu_full.o"
-=======
 	.include "src/ui_birch_case.o"
->>>>>>> e79c3166c4f10bffb865f0c35c61af1cfec6fc69
