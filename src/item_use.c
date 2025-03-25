@@ -1549,7 +1549,7 @@ static void ItemUseOnFieldCB_TownMap(u8 taskId)
     ScriptContext_SetupScript(EventScript_RegionMap);
     DestroyTask(taskId);
 }
-
+// pointer per esempio callback
 void ItemUseOutOfBattle_TownMap(u8 taskId)
 {
     sItemUseOnFieldCB = ItemUseOnFieldCB_TownMap;
